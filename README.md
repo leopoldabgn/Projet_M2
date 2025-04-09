@@ -23,9 +23,10 @@ pip install -r requirements.txt
 ```
 
 ## Lauch Server
+Se lance sur le port 7000 en localhost.
 ```bash
 python3 server.py
 ```
 
 # Output
-Une image **image_result.png** sera crée quand vous ferez "Ctrl+C" pour éteindre le serveur.
+Une image **output/img1.png** sera crée quand vous ferez "Ctrl+C" pour éteindre le serveur.

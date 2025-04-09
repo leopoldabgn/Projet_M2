@@ -22,7 +22,7 @@ cd code/server
 pip install -r requirements.txt
 ```
 
-## Lauch Server
+## Launch Server
 Se lance sur le port 7000 en localhost.
 ```bash
 python3 server.py

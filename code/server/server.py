@@ -10,19 +10,41 @@ def create_grayscale_image_from_log(file_path, output_dir='output'):
 
     # Lire et stocker les données
     with open(file_path, 'r') as f:
+        last_val = None
+        skip_mode = False
+        last_x = None
+
         for line in f:
             parts = line.strip().split(',')
             if len(parts) != 3:
                 continue
             x, y, val = map(int, parts)
+
+            if last_val == 1 and val == 1:
+                # Found two consecutive 1s -> enter skip mode
+                skip_mode = True
+                last_x = x
+                continue  # Don't add this line
+
+            if skip_mode:
+                # Skip until x or y changes
+                if x != last_x:
+                    skip_mode = False  # Found a different coordinate
+                else:
+                    continue  # Still same, keep skipping
+
+
             pixels[(x, y)] = val
+            last_val = val  # Update last value seen
 
     # Trouver dimensions de l'image
     all_x = [coord[0] for coord in pixels]
     all_y = [coord[1] for coord in pixels]
 
     width = max(all_x) + 1
+    print(max(all_x))
     height = max(all_y) + 1
+    print(max(all_y))
 
     # Créer une image vide blanche
     img_array = np.full((height, width), 255, dtype=np.uint8)  # par défaut tout blanc

@@ -30,3 +30,8 @@ python3 server.py
 
 # Output
 Une image **output/img1.png** sera crée quand vous ferez "Ctrl+C" pour éteindre le serveur.
+
+# NOTES
+
+## Ouvrir un port uniquement visible sur la machine
+python3 -m http.server 5000 --bind 127.0.0.1

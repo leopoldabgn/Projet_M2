@@ -1,6 +1,7 @@
 # Projet M2 - Side Channel Attack
 
 https://github.com/aleksejspopovs/cve-2020-16012/tree/main
+
 https://blog.mozilla.org/attack-and-defense/2021/01/11/leaking-silhouettes-of-cross-origin-images/
 
 # Client
